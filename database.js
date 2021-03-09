@@ -4,8 +4,7 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.set('useFindAndModify', false);
 
 class Database {
-    constructor()
-    {
+    constructor(){
         this.connect();
     }
     connect()
@@ -15,5 +14,4 @@ class Database {
         .catch((err) => { console.log('Database Connection error '+err)})
     }
 }
-
 module.exports = new Database();
