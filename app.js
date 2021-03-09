@@ -5,12 +5,8 @@ const middleware = require('./middleware');
 const loginRoute = require('./routes/loginRoutes');
 const registerRoute = require('./routes/registerRoutes');
 const path = require('path');
-const mongoose = require('mongoose');
+const mongoose = require('./database');
 const bodyParser = require('body-parser');
-
-mongoose.connect("mongodb+srv://admin:dbUserPassword@twittercluster.q33bm.mongodb.net/Twitter?retryWrites=true&w=majority")
-        .then(()=>{ console.log('Database Connection successful')})
-        .catch((err) => { console.log('Database Connection error '+err)})
 
 const server = app.listen(port, ()=> console.log(`Server Listening the Port is ${port}`) );
 
