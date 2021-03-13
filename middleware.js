@@ -1,5 +1,5 @@
 exports.requireLogin = (req,res,next) => {
-    if(res.session && res.session.user)
+    if(req.session && req.session.user)
     {
         return next();
     }

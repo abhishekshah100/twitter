@@ -15,7 +15,6 @@ router.get('/', (req, res, next)=>{
 });
 
 router.post('/', async (req,res, next)=> {
-    //console.log(req.body);
     let firstName=req.body.firstName.trim();
     let lastName=req.body.lastName.trim();
     let userName=req.body.userName.trim();
@@ -42,7 +41,9 @@ router.post('/', async (req,res, next)=> {
             data.password =await bcrypt.hash(password,10);
             User.create(data)
             .then((user) => {
-                console.log("create");
+               console.log("create");
+               req.session.user=user;
+               return res.redirect("/");
             })
         }
         else
