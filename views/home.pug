@@ -1,6 +1,8 @@
-html
-    head
-        title #{pageTitle}
-    body 
-        h1 Home Page
-        p #{userLoggedIn.firstName}
+extends layouts/main-layout.pug
+
+block content    
+    +createPostForm(userLoggedIn)
+    .postsContainer
+
+block scripts
+    script(src="/js/home.js")
